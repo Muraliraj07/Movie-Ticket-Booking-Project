@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>    
+    .container{
+    	width: 400px;
+    }
+</style>
+
+</head>
+<body>
+
+
+<div class="text-center">
+	<h1>Ticket Booking System</h1>
+</div>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/theaters}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/addtheater}">Add Theater</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Theater List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/addmovie}">Add Movie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Movies List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Book List</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav  ml-auto">  
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/login}">Login</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/signup}">Signup</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+<div class="container mt-5">
+	 	<h2>Registration</h2>
+    <form>
+      	<div class="form-row">
+	        <div class="form-group col-md-6">
+	          <label for="name1">First Name :</label>
+	          <input type="text" class="form-control" id="name1" placeholder="Name 1">
+	        </div>
+        	<div class="form-group col-md-6">
+	          <label for="name2">Last Name</label>
+	          <input type="text" class="form-control" id="name2" placeholder="Name 2">
+	    	</div>
+      	</div>
+      	<div class="form-group">
+       	 	<label for="email">Email ID</label>
+        	<input type="email" class="form-control" id="email" placeholder="Email ID">
+     	</div>
+      	<div class="form-row">
+        	<div class="form-group col-md-6">
+          	<label for="password">Password</label>
+          	<input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <div class="form-group col-md-6">
+          	<label for="confirmPassword">Confirm Password</label>
+          	<input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+        </div>
+      	</div>
+      	<div class="form-group">
+        	<label for="mobile">Mobile Number</label>
+        	<input type="text" class="form-control" id="mobile" placeholder="Mobile Number">
+      	</div>
+      		<button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  	</div>
+
+</body>
+</html>

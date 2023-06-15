@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<div>
+ 	<table class="table">
+ 		<thead>
+ 			<tr>
+ 				<th>Image</th>
+ 				<th>theaterName</th>
+ 				<th>Movie Name</th>
+ 				<th>Director</th>
+ 				<th>Hero</th>
+ 				<th>Language</th>
+ 				<th>Screen No</th>
+ 				<th>ticket_Price</th>
+ 				<th>Edit</th>
+ 			</tr>
+ 		</thead>
+ 		
+ 		<tbody>
+ 			<tr th:each="movies: ${movie}">
+
+				<th scope="row"><img alt="img" th:src="*{'data:image/jpeg;base64,'+{movies.movieImage}}" style="width: 100px;height: 100px;"></th>
+				<td th:text="${movies.theaterName}"></td>
+ 				<td th:text="${movies.movieName}"></td>
+ 				<td th:text="${movies.movieDirector}"></td>
+ 				<td th:text="${movies.movieHero}"></td>
+ 				<td th:text="${movies.movieLanguage}"></td>
+ 				<td th:text="${movies.movieScreen}"></td>
+ 				<td th:text="${movies.ticket_Price}"></td>
+ 			</tr>
+ 		</tbody>
+ 	</table>
+ </div>
+</body>
+</html>

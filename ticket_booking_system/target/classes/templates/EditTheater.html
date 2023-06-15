@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+	.container{
+		margin-left:100px;
+		width:500px
+	}
+
+</style>
+</head>
+<body>
+	
+	<div class="container">
+		<h1 class="text-center">List Theater</h1>
+		
+		<!-- th:object is the key of the value created in controller -->
+	 	
+		<form th:action="@{/theater/{id}(id=${theater.id})}" th:object=${theater} method="POST" enctype="multipart/form-data"> 
+			
+			<div class=mt-3>
+				<label>Theater Name :</label>
+				<input type="text" name="tName"  th:field="*{theaterName}" class="form-control">
+			</div>
+			
+			<div class=mt-3>
+				<label>Theater Type :</label>
+				<input type="text" name="tType"  th:field="*{theaterType}" class="form-control">
+			</div>
+			
+			<div class=mt-3>
+				<label>City :</label>
+				<input type="text" name="city"  th:field="*{city}"  class="form-control">
+			</div>
+			
+			<div class=mt-3>
+				<label>Address :</label><br>
+				<textarea rows="4" cols="24" th:field="*{address}" name="address" ></textarea>
+			</div>
+			
+			<div class="mt-3">
+    <label>Theater Image:</label><br>
+    <input type="file" name="file">
+    <div th:if="${theater.image != null}">
+        <img th:src="${'data:image/jpeg;base64,' + theater.image}" style="width: 100px; height: 100px;">
+    </div>
+</div>
+
+			<button type="submit" class="btn btn-primary mt-3">Add Theater</button>
+		</form>
+	</div>
+	
+</body>
+</html>
+</body>
+</html>

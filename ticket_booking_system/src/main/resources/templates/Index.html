@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+
+	
+	.btnedit{
+		background-color:rgb(5, 211, 175);
+		color:white;
+		border-radius:10px;
+		transition:0.5s;
+	}
+	.btnedit:hover{
+		border:2px solid black;
+		border-color:rgb(5, 211, 175);
+		color: green;
+		background-color:white;
+		transition:0.5s;
+	}
+	
+	.btndelete{
+	background-color:#b51269;
+	color:white;
+	border-radius:10px;
+	transition:0.5s;
+	}
+	
+	.btndelete:hover{
+	border:2px solid black;
+	border-color:#b51269;
+	color:red;
+	background-color:white;
+	transition:0.5s;
+	
+	}
+	.col{
+	background-color:#313145;
+	
+	}
+	.navbar a{
+	color:white;
+	}
+	
+	.table {
+	color:white;
+	}
+	.bg{
+	color:white;
+	}
+	
+	.navbar {
+  display: flex;
+  justify-content: center;
+}
+</style>
+
+</head>
+<body>
+<div class="col">
+<!-- <div class="text-center">
+	<h1>Ticket Booking System</h1>
+</div> -->
+
+  <nav class="navbar navbar-expand-md  ">
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav nav-center">
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/theaters}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/theaters/addtheater}">Add Theater</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Theater List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/addmovie}">Add Movie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Movies List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Book List</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav  ml-auto">  
+       <li class="nav-item active">
+    <a class="nav-link" th:href="@{/login}">Login</a>
+</li>
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/signup}">Signup</a>
+        </li>   
+      </ul>
+    </div>
+  </nav>
+
+<div class=" bg text-center">
+	<h3 >Theaters Available</h3>
+</div> 
+<!-- Theater List  
+ -->  
+ 
+ <div>
+ 	<table class="table">
+ 		<thead>
+ 			<tr>
+ 				<th>Image</th>
+ 				<th>Theater Name</th>
+ 				<th>Theater Type</th>
+ 				<th>City</th>
+ 				<th>Address</th>
+ 				<th>Edit</th>
+ 			</tr>
+ 		</thead>
+ 		
+ 		<tbody>
+ 			<tr th:each="theater: ${theatersList}">
+
+				<th scope="row"><img alt="" th:src="*{'data:image/jpeg;base64,'+{theater.image}}" style="width: 100px;height: 100px;"></th>
+
+
+ 				<td th:text="${theater.theaterName}"></td>
+ 				<td th:text="${theater.theaterType}"></td>
+ 				<td th:text="${theater.city}"></td>
+ 				<td th:text="${theater.address}"></td>
+ 				
+ 				<td>
+ 					<a th:href="@{/edittheater/{id}(id=${theater.id})}" class="btn btnedit">Edit</a>
+ 					<a th:href="@{/theater/{id}(id=${theater.id})}" class="btn btndelete">Delete</a>
+ 					
+ 					
+ 				</td>
+ 				
+ 			</tr>
+ 		</tbody>
+ 	</table>
+ </div>
+  </div>
+  
+</body>
+
+<script th:import="org.thymeleaf.util.StringUtils"></script>
+
+</html>
+
+
+
+
+
